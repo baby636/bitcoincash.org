@@ -13,6 +13,6 @@ RUN mv _config-${APP_ENV}.yml _config.yml
 RUN bundle exec jekyll build
 
 # Hosting Layer
-FROM nginx
+FROM nginx:1.21
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=0 /work/_site/ /usr/share/nginx/html/
